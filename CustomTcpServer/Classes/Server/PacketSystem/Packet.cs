@@ -17,6 +17,7 @@ namespace InfinityServer.Classes.Server.PacketSystem
 
         // Payload
         public byte[] Data { get; set; }
+        public byte[] Message { get; set; }
 
         // Security
         public string Checksum { get; set; }
@@ -27,6 +28,7 @@ namespace InfinityServer.Classes.Server.PacketSystem
         public DateTime? ExpirationTime { get; set; }
         public string SenderID { get; set; }
         public string ReceiverID { get; set; }
+        public string FileExtestion { get; set; }
 
         public void GenerateChecksum()
         {

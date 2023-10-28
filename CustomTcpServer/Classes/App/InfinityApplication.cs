@@ -7,6 +7,7 @@ using InfinityServer.App.UI;
 using InfinityServer.Classes.Utils;
 using Newtonsoft.Json;
 using InfinityServer.Classes.Server;
+using InfinityServer.Classes.Utils.InfinityServer.Classes.Utils;
 
 namespace InfinityServer.App
 {
@@ -29,7 +30,8 @@ namespace InfinityServer.App
 
             _infinityTcpServer = new InfinityTcpServer(GetPortFromConfig());
 
-            CryptoUtility.Initialize();
+            CryptoUtilityOld.Initialize();
+            //CryptoUtility.Initialize();
 
             _database = new Database(GetConnectionStringFromConfig());
 

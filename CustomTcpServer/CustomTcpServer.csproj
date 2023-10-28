@@ -131,6 +131,8 @@
     <Compile Include="Classes\Server\PacketSystem\PacketHandler.cs" />
     <Compile Include="Classes\Server\PacketSystem\PacketHandlers\AesReadyForUsePacketHandler.cs" />
     <Compile Include="Classes\Server\PacketSystem\PacketHandlers\ClientPublicKeyPacketHandler.cs" />
+    <Compile Include="Classes\Server\PacketSystem\PacketHandlers\FileFromClientPacketHandler.cs" />
+    <Compile Include="Classes\Server\PacketSystem\PacketHandlers\GetImageFromPhonePacketHandler.cs" />
     <Compile Include="Classes\Server\PacketSystem\PacketHandlers\UserDetailsRequestPacketHandler.cs" />
     <Compile Include="Classes\Server\PacketSystem\PacketHandlers\UserLoginRequestPacketHandler.cs" />
     <Compile Include="Classes\Server\PacketSystem\PacketHandlers\UserRegistrationPacketHandler.cs" />
@@ -140,6 +142,7 @@
     <Compile Include="Classes\Server\User\UserAuthDetails.cs" />
     <Compile Include="Classes\Server\User\UserDetails.cs" />
     <Compile Include="Classes\Utils\CryptoUtility.cs" />
+    <Compile Include="Classes\Utils\CryptoUtilityOld.cs" />
     <Compile Include="Classes\Utils\Database.cs" />
     <Compile Include="Classes\Utils\EmailValidator.cs" />
     <Compile Include="Classes\Utils\ImageUtils.cs" />

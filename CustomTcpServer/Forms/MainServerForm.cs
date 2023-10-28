@@ -1,7 +1,6 @@
 ﻿using InfinityServer.App;
 using InfinityServer.Classes.App.UI;
 
-
 namespace CustomTcpServer
 {
     public partial class MainServerForm : CustomForm

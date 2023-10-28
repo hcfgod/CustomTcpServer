@@ -18,7 +18,11 @@ namespace CustomTcpServer.Classes.App.EntryPoint
             InfinityApplication app = new InfinityApplication();
             app.Initialize();
 
-            Application.Run();
+            try
+            {
+                Application.Run();
+            }
+            catch(InvalidOperationException ioexp) { }
         }
     }
 }

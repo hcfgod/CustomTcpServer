@@ -21,8 +21,8 @@ namespace InfinityServer.Classes.Server.Security
 
         public RateLimiter()
         {
-            _maxRequests = GetMaxRequestFromConfig();
-            _rateLimitDurationSeconds = GetRateLimitDurationFromConfig();
+            _maxRequests = 50;
+            _rateLimitDurationSeconds = 60;
             _evictionTimer = new Timer(EvictOldEntries, null, TimeSpan.FromSeconds(_rateLimitDurationSeconds), TimeSpan.FromSeconds(_rateLimitDurationSeconds));
         }
 

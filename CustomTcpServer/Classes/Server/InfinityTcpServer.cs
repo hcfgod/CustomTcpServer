@@ -90,6 +90,8 @@ namespace InfinityServer.Classes.Server
             _connectedClientHandlers.TryAdd(clientGuid, clientHandler);
 
             clientHandler.ClientConnected(e);
+
+            MessageBox.Show("Client Connected!");
         }
 
         private void StreamReceived(object sender, StreamReceivedEventArgs e)

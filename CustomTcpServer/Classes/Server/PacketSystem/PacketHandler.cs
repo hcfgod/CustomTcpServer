@@ -2,9 +2,11 @@
 using System.Collections.Concurrent;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using InfinityServer.App;
 using InfinityServer.Classes.Server.PacketSystem.PacketHandlers;
 using InfinityServer.Classes.Utils;
+using InfinityServer.Classes.Utils.InfinityServer.Classes.Utils;
 using Newtonsoft.Json;
 
 namespace InfinityServer.Classes.Server.PacketSystem
@@ -23,6 +25,9 @@ namespace InfinityServer.Classes.Server.PacketSystem
             packetHandlers.TryAdd("User Login Request", new UserLoginRequestPacketHandler());
 
             packetHandlers.TryAdd("User Details Request", new UserDetailsRequestPacketHandler());
+
+            packetHandlers.TryAdd("Get Image From Phone", new GetImageFromPhonePacketHandler());
+            packetHandlers.TryAdd("File From Client", new FileFromClientPacketHandler());
         }
 
         public byte[] SerializePacket(Packet packet)
@@ -31,7 +36,7 @@ namespace InfinityServer.Classes.Server.PacketSystem
             {
                 if (packet.EncryptionFlag)
                 {
-                    packet.Data = CryptoUtility.AesEncrypt(packet.Data);  // Your Encrypt method
+                    packet.Data = CryptoUtilityOld.AesEncrypt(packet.Data);  // Your Encrypt method
                 }
 
                 packet.GenerateChecksum();
@@ -73,7 +78,7 @@ namespace InfinityServer.Classes.Server.PacketSystem
 
                 if (packet.EncryptionFlag)
                 {
-                    packet.Data = CryptoUtility.AesDecrypt(packet.Data);
+                    packet.Data = CryptoUtilityOld.AesDecrypt(packet.Data);
                 }
 
                 return packet;
@@ -91,7 +96,7 @@ namespace InfinityServer.Classes.Server.PacketSystem
             }
         }
 
-        public Packet CreateNewPacket(byte[] data, string packetType, bool encryptionFlag = false, string version = "0.1")
+        public Packet CreateNewPacket(byte[] data, string message, string packetType, string fileExtenstion = "", bool encryptionFlag = false, string version = "0.1")
         {
             Packet packet = new Packet
             {
@@ -99,12 +104,14 @@ namespace InfinityServer.Classes.Server.PacketSystem
                 PacketType = packetType,
                 Timestamp = DateTime.UtcNow,
                 Data = data,
+                Message = Encoding.UTF8.GetBytes(message),
                 EncryptionFlag = encryptionFlag,
 
                 Version = version,
                 ExpirationTime = DateTime.UtcNow.AddMinutes(5),
                 SenderID = "Server",
                 ReceiverID = "Client",
+                FileExtestion = fileExtenstion,
             };
 
             return packet;

@@ -1,0 +1,2 @@
+2023-10-26 17:00:55.641 -07:00 [INF] (InfinityApplication.cs) - InfinityApplication(): App Started!
+2023-10-26 17:38:30.012 -07:00 [INF] (InfinityApplication.cs) - InfinityApplication(): App Started!
